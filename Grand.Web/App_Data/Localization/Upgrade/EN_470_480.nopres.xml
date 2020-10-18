@@ -119,8 +119,8 @@
   <LocaleResource Name="Admin.Customers.CustomerRoles.Acl.SaveBeforeEdit">
     <Value>You need to save before you can edit access control list.</Value>
   </LocaleResource>
-  <LocaleResource Name="Admin.System.CustomRobotsTxt">
-    <Value>Custom Robots.txt </Value>
+  <LocaleResource Name="Admin.System.AdditionsRobotsTxt">
+    <Value>Additions Robots.txt </Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Catalog.Categories.Fields.BottomDescription">
     <Value>Bottom description</Value>
@@ -245,5 +245,34 @@
   <LocaleResource Name="Admin.Login.TwoFactorAuth.SendCode">
     <Value>Send code</Value>
   </LocaleResource>
-
+  <LocaleResource Name="Admin.Configuration.Settings.PushNotifications.AppId">
+    <Value>AppId</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.PushNotifications.AppId.Hint">
+    <Value>Provide the AppId</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.HideSubaccountsTab">
+    <Value>Hide Subaccounts Tab</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.HideSubaccountsTab.Hint">
+    <Value>Check if you want to hide the Subaccounts tab in "My Account" section.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.AllowUsersToChangeEmail">
+    <Value>Allow users to change email</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.AllowUsersToChangeEmail.Hint">
+    <Value>Check if you want to allow users to change their main email accounts</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Plugins.Description.Note">
+    <Value>NOTE: Due to the fact that we provide all possible versions of the plugin, please make sure you want to upload the correct ZIP file (with the correct structure). The correct file structure is Plugin.zip -> Plugin directory -> Content of the plugin. Otherwise, each attempt to use the Upload Plugin form will fail.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Currencies.Fields.NumberDecimal">
+    <Value>The number of decimal places in the return value</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Currencies.Fields.NumberDecimal.Hint">
+    <Value>Allow to set the number of decimal places in the return value (round price).</Value>
+  </LocaleResource>
+  <LocaleResource Name="Account.Login.NewCustomer">
+    <Value>Don't have an account?</Value>
+  </LocaleResource>
 </Language>

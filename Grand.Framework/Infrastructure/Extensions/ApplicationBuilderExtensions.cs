@@ -21,6 +21,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebMarkupMin.AspNetCore3;
 using Grand.Core.Routing;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Grand.Framework.Infrastructure.Extensions
 {
@@ -118,8 +119,8 @@ namespace Grand.Framework.Infrastructure.Extensions
                 //handle 404 Not Found
                 if (context.HttpContext.Response.StatusCode == 404)
                 {
-                    string authHeader = context.HttpContext.Request.Headers["Authorization"];
-                    var apirequest = authHeader != null && authHeader.Split(' ')[0] == "Bearer";
+                    string authHeader = context.HttpContext.Request.Headers[HeaderNames.Authorization];
+                    var apirequest = authHeader != null && authHeader.Split(' ')[0] == JwtBearerDefaults.AuthenticationScheme;
 
                     var webHelper = context.HttpContext.RequestServices.GetRequiredService<IWebHelper>();
                     if (!apirequest && !webHelper.IsStaticResource())

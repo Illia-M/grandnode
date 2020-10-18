@@ -255,7 +255,7 @@ namespace Grand.Services.Installation
             await _versionRepository.InsertAsync(version);
         }
 
-        protected virtual async Task InstallStores()
+        protected virtual async Task InstallStores(string companyName, string companyAddress, string companyPhoneNumber, string companyEmail)
         {
             //var storeUrl = "http://www.yourStore.com/";
             var storeUrl = _webHelper.GetStoreLocation(false);
@@ -269,12 +269,11 @@ namespace Grand.Services.Installation
                     SslEnabled = false,
                     Hosts = "yourstore.com,www.yourstore.com",
                     DisplayOrder = 1,
-                    //should we set some default company info?
-                    CompanyName = "Your company name",
-                    CompanyAddress = "21 West 52nd Street",
-                    CompanyPhoneNumber = "(123) 456-78901",
+                    CompanyName = companyName,
+                    CompanyAddress = companyAddress,
+                    CompanyPhoneNumber = companyPhoneNumber,
                     CompanyVat = null,
-                    CompanyEmail = "company@email.com",
+                    CompanyEmail = companyEmail,
                     CompanyHours = "Monday - Sunday / 8:00AM - 6:00PM"
                 },
             };
@@ -448,6 +447,7 @@ namespace Grand.Services.Installation
                     Rate = 1,
                     DisplayLocale = "en-US",
                     CustomFormatting = "",
+                    NumberDecimal = 2,
                     Published = true,
                     DisplayOrder = 1,
                     RoundingType = RoundingType.Rounding001,
@@ -462,6 +462,7 @@ namespace Grand.Services.Installation
                     Rate = 0.95M,
                     DisplayLocale = "",
                     CustomFormatting = string.Format("{0}0.00", "\u20ac"),
+                    NumberDecimal = 2,
                     Published = true,
                     DisplayOrder = 2,
                     RoundingType = RoundingType.Rounding001,
@@ -476,6 +477,7 @@ namespace Grand.Services.Installation
                     Rate = 0.82M,
                     DisplayLocale = "en-GB",
                     CustomFormatting = "",
+                    NumberDecimal = 2,
                     Published = false,
                     DisplayOrder = 3,
                     RoundingType = RoundingType.Rounding001,
@@ -490,6 +492,7 @@ namespace Grand.Services.Installation
                     Rate = 6.93M,
                     DisplayLocale = "zh-CN",
                     CustomFormatting = "",
+                    NumberDecimal = 2,
                     Published = false,
                     DisplayOrder = 4,
                     RoundingType = RoundingType.Rounding001,
@@ -504,6 +507,7 @@ namespace Grand.Services.Installation
                     Rate = 68.17M,
                     DisplayLocale = "en-IN",
                     CustomFormatting = "",
+                    NumberDecimal = 2,
                     Published = false,
                     DisplayOrder = 5,
                     RoundingType = RoundingType.Rounding001,
@@ -518,6 +522,7 @@ namespace Grand.Services.Installation
                     Rate = 3.97M,
                     DisplayLocale = "pl-PL",
                     CustomFormatting = "",
+                    NumberDecimal = 2,
                     Published = false,
                     DisplayOrder = 6,
                     RoundingType = RoundingType.Rounding001,
@@ -5131,7 +5136,6 @@ namespace Grand.Services.Installation
                 InstagramLink = "https://www.instagram.com/grandnode/",
                 LinkedInLink = "https://www.linkedin.com/company/grandnode.com/",
                 PinterestLink = "",
-                HidePoweredByGrandNode = false
             });
 
             await _settingService.SaveSetting(new ExternalAuthenticationSettings {
@@ -5262,6 +5266,7 @@ namespace Grand.Services.Installation
                 DisplayTaxSuffix = false,
                 DisplayTaxRates = false,
                 PricesIncludeTax = false,
+                CalculateRoundPrice = 2,
                 AllowCustomersToSelectTaxDisplayType = false,
                 ForceTaxExclusionFromOrderSubtotal = false,
                 HideZeroTax = false,
@@ -10877,14 +10882,14 @@ namespace Grand.Services.Installation
 
 
         public virtual async Task InstallData(string defaultUserEmail,
-            string defaultUserPassword, string collation, bool installSampleData = true)
+            string defaultUserPassword, string collation, bool installSampleData = true, string companyName = "", string companyAddress = "", string companyPhoneNumber = "", string companyEmail = "")
         {
 
             defaultUserEmail = defaultUserEmail.ToLower();
             await CreateTables(collation);
             await CreateIndexes();
             await InstallVersion();
-            await InstallStores();
+            await InstallStores(companyName, companyAddress, companyPhoneNumber, companyEmail);
             await InstallMeasures();
             await InstallTaxCategories();
             await InstallLanguages();

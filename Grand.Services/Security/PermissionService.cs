@@ -36,7 +36,7 @@ namespace Grand.Services.Security
         /// {1} : permission system name
         /// {2} : permission action name
         /// </remarks>
-        private const string PERMISSIONS_ALLOWED_ACTION_KEY = "Grand.permission.allowed-{0}-{1}-{2}";
+        private const string PERMISSIONS_ALLOWED_ACTION_KEY = "Grand.permission.allowed.action-{0}-{1}-{2}";
 
         /// <summary>
         /// Key pattern to clear cache
@@ -294,10 +294,16 @@ namespace Grand.Services.Security
             if (string.IsNullOrEmpty(permissionRecordSystemName) || string.IsNullOrEmpty(permissionActionName))
                 return false;
 
+            if (!await Authorize(permissionRecordSystemName))
+                return false;
+
             var customerRoles = _workContext.CurrentCustomer.CustomerRoles.Where(cr => cr.Active);
             foreach (var role in customerRoles)
             {
-                string key = string.Format(PERMISSIONS_ALLOWED_ACTION_KEY, role.Id, permissionRecordSystemName, permissionActionName);
+                if (!await Authorize(permissionRecordSystemName, role))
+                    continue;
+
+                var key = string.Format(PERMISSIONS_ALLOWED_ACTION_KEY, role.Id, permissionRecordSystemName, permissionActionName);
                 var permissionAction = await _cacheManager.GetAsync(key, async () =>
                 {
                     return await _permissionActionRepository.Table

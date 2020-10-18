@@ -4,6 +4,7 @@ using Grand.Domain.Stores;
 using Grand.Core.Html;
 using Grand.Services.Orders;
 using System.Collections.Generic;
+using System;
 
 namespace Grand.Services.Messages.DotLiquidDrops
 {
@@ -40,6 +41,9 @@ namespace Grand.Services.Messages.DotLiquidDrops
 
         public string OrderId
         {
+            get { return _order.Id; }
+        }
+        public string OrderNumber {
             get { return _order.OrderNumber.ToString(); }
         }
 
@@ -49,21 +53,28 @@ namespace Grand.Services.Messages.DotLiquidDrops
 
         public string CustomerComment
         {
-            get { return HtmlHelper.FormatText(_returnRequest.CustomerComments, false, true, false, false, false, false); }
+            get { return HtmlHelper.FormatText(_returnRequest.CustomerComments); }
         }
 
         public string StaffNotes
         {
-            get { return HtmlHelper.FormatText(_returnRequest.StaffNotes, false, true, false, false, false, false); }
+            get { return HtmlHelper.FormatText(_returnRequest.StaffNotes); }
         }
 
         public string Status { get; set; }
 
         public string Products { get; set; }
 
+        public DateTime CreatedOnUtc {
+            get { return _returnRequest.CreatedOnUtc; }
+        }
+
         public string PickupDate
         {
             get { return _returnRequest.PickupDate.ToShortDateString(); }
+        }
+        public DateTime PickupDateUtc {
+            get { return _returnRequest.PickupDate; }
         }
 
         public string PickupAddressFirstName

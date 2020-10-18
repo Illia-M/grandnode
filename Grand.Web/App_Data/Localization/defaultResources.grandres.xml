@@ -577,7 +577,7 @@
     <Value>Log in</Value>
   </LocaleResource>
   <LocaleResource Name="Account.Login.NewCustomer">
-    <Value>Don't have an account? Create one for free</Value>
+    <Value>Don't have an account?</Value>
   </LocaleResource>
   <LocaleResource Name="Account.Login.NewCustomerText">
     <Value>By creating an account on our website you will be able to shop faster, be up to date on an orders status, and keep track of the orders you have previously made.</Value>
@@ -5343,6 +5343,12 @@
   <LocaleResource Name="Admin.Configuration.Currencies.Fields.Name.Required">
     <Value>Please provide a name.</Value>
   </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Currencies.Fields.NumberDecimal">
+    <Value>The number of decimal places in the return value</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Currencies.Fields.NumberDecimal.Hint">
+    <Value>Allow to set the number of decimal places in the return value (round price).</Value>
+  </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Currencies.Fields.Published">
     <Value>Published</Value>
   </LocaleResource>
@@ -5813,6 +5819,9 @@
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Plugins.Description">
     <Value>Manual plugin installation</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Plugins.Description.Note">
+    <Value>NOTE: Due to the fact that we provide all possible versions of the plugin, please make sure you want to upload the correct ZIP file (with the correct structure). The correct file structure is Plugin.zip -> Plugin directory -> Content of the plugin. Otherwise, each attempt to use the Upload Plugin form will fail.</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Plugins.Description.Step1">
     <Value>Upload the plugin to the /plugins folder in your grandnode directory.</Value>
@@ -6768,6 +6777,12 @@
   <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.AllowCustomersToUploadAvatars.Hint">
     <Value>A value indicating whether customers are allowed to upload avatars.</Value>
   </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.AllowUsersToChangeEmail">
+    <Value>Allow users to change email</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.AllowUsersToChangeEmail.Hint">
+    <Value>Check if you want to allow users to change their main email accounts</Value>
+  </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.AllowUsersToChangeUsernames">
     <Value>Allow customers to change their usernames</Value>
   </LocaleResource>
@@ -6968,6 +6983,12 @@
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.HideReviewsTab.Hint">
     <Value>Check to hide 'My Reviews' tab on 'My account' page.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.HideSubaccountsTab">
+    <Value>Hide Subaccounts Tab</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.HideSubaccountsTab.Hint">
+    <Value>Check if you want to hide the Subaccounts tab in "My Account" section.</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.NewsletterBlockAllowToUnsubscribe">
     <Value>Newsletter box. Allow to unsubscribe</Value>
@@ -8371,6 +8392,12 @@
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Settings.PushNotifications.AllowGuestNotifications.Hint">
     <Value>Should be checked if you want to allow guest to register for push notifications</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.PushNotifications.AppId">
+    <Value>AppId</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.PushNotifications.AppId.Hint">
+    <Value>Provide the AppId</Value>
   </LocaleResource>
   <LocaleResource Name="admin.configuration.settings.pushnotifications.authdomain">
     <Value>Auth Domain</Value>
@@ -16045,6 +16072,9 @@
   <LocaleResource Name="Admin.System">
     <Value>System</Value>
   </LocaleResource>
+  <LocaleResource Name="Admin.System.AdditionsRobotsTxt">
+    <Value>Additions Robots.txt</Value>
+  </LocaleResource>
   <LocaleResource Name="Admin.System.APIUsers">
     <Value>Manage api users</Value>
   </LocaleResource>
@@ -16161,9 +16191,6 @@
   </LocaleResource>
   <LocaleResource Name="Admin.System.CustomJs.Tip">
     <Value>Start typing, when you enter first letters of JS code, press CTRL + space and see hints.</Value>
-  </LocaleResource>
-  <LocaleResource Name="Admin.System.CustomRobotsTxt">
-    <Value>Custom Robots.txt</Value>
   </LocaleResource>
   <LocaleResource Name="admin.system.developertools">
     <Value>Developer Tools</Value>
